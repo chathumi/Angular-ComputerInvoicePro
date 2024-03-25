@@ -1,0 +1,86 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">Generate Invoice</h5>
+          </div>
+          <div class="card-body">
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="customerName" class="form-label">Customer Name:</label>
+        <input type="text" class="form-control" id="customerName" name="customerName" [(ngModel)]="invoiceData.customerName">
+      </div>
+
+
+      <div class="mb-3">
+        <label for="customerAddress" class="form-label">Customer Address:</label>
+        <input type="text" class="form-control" id="customerAddress" name="customerAddress" [(ngModel)]="invoiceData.customer.address">
+      </div>
+  
+      <div class="mb-3">
+        <label for="customerPhoneNumber" class="form-label">Customer Phone Number:</label>
+        <input type="text" class="form-control" id="customerPhoneNumber" name="customerPhoneNumber" [(ngModel)]="invoiceData.customer.phoneNumber">
+      </div>
+  
+      <div class="mb-3">
+        <label for="customerEmail" class="form-label">Customer Email:</label>
+        <input type="email" class="form-control" id="customerEmail" name="customerEmail" [(ngModel)]="invoiceData.customer.email">
+      </div>
+    <div class="mb-3">
+      <label for="transactionDate" class="form-label">Transaction Date:</label>
+      <input type="datetime-local" class="form-control" id="transactionDate" name="transactionDate" [(ngModel)]="invoiceData.transactionDate">
+    </div>
+
+    <div class="mb-3">
+      <label for="totalAmount" class="form-label">Total Amount:</label>
+      <input type="number" class="form-control" id="totalAmount" name="totalAmount" [(ngModel)]="invoiceData.totalAmount">
+    </div>
+
+    <div class="mb-3">
+      <label for="discount" class="form-label">Discount:</label>
+      <input type="number" class="form-control" id="discount" name="discount" [(ngModel)]="invoiceData.discount">
+    </div>
+
+   
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">View Invoices</h5>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Customer Name</th>
+                  <th>Transaction Date</th>
+                  <th>Discount</th>
+                  <th>Total Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let invoice of invoices">
+                    <td>{{ invoice.id }}</td>
+                    <td>{{ invoice.customerName }}</td>
+                    <td>{{ invoice.transactionDate }}</td>
+                    <td>{{ invoice.discount }}</td>
+                    <td>{{ invoice.totalAmount }}</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
